@@ -1,0 +1,14 @@
+spacy
+python-dotenv
+fastapi 
+uvicorn
+wasabi
+langdetect
+scikit-learn
+pypdf 
+python-docx
+langchain_text_splitters 
+langchain_core
+numpy
+sentence-transformers
+weaviate-client
