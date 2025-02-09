@@ -9,6 +9,12 @@ class Credentials(BaseModel):
     key: str
 
 
+class VectorDBConfig(BaseModel):
+    index_name: str  
+    api_key: str  
+    dimension: int  
+    collection_name: str  
+
 class ConversationItem(BaseModel):
     type: str
     content: str
@@ -45,6 +51,8 @@ class DataBatchPayload(BaseModel):
     fileID: str
     order: int
     credentials: Credentials
+    vector_db_config: VectorDBConfig  # New field for vector database config
+
 
 
 class LoadPayload(BaseModel):
@@ -182,18 +190,22 @@ class GetAllSuggestionsPayload(BaseModel):
     credentials: Credentials
 
 
+
+
 class QueryPayload(BaseModel):
     query: str
     RAG: dict[str, RAGComponentClass]
     labels: list[str]
     documentFilter: list[DocumentFilter]
     credentials: Credentials
+    vector_db_config: VectorDBConfig  # New field for vector database config
 
 
 class DatacountPayload(BaseModel):
     embedding_model: str
     documentFilter: list[DocumentFilter]
     credentials: Credentials
+    
 
 
 class SetRAGConfigPayload(BaseModel):
